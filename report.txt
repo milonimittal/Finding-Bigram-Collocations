@@ -1,0 +1,165 @@
+IR Assignment 1 Report
+Name: Miloni Mittal		ID: 2017A3PS0243P
+
+
+
+1. Unigram analysis:
+(a) Mention the total unique unigrams present in the corpus.
+Answer: Number of unique unigrams: 76039
+(b) Plot the distribution of the unigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) uni-grams are required to cover the 90% of the complete corpus.
+Answer: Uni-grams required to cover 90% of the complete corpus: 12435
+
+2. Bigram analysis:
+(a) Mention the total unique bigrams present in the corpus. 
+Answer: Number of unique bigrams: 554348
+(b) Plot the distribution of the bigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) bi-grams are required to cover the 80% of the complete corpus.
+Answer: Bi-grams required to cover 80% of the complete corpus: 303040
+
+3. Trigram analysis:
+(a) Mention the total unique trigrams present in the corpus. 
+Answer: Number of unique trigrams: 975373
+(b) Plot the distribution of the trigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) tri-grams are required to cover the 70% of the complete corpus.
+Answer: Tri-grams required to cover 70% of the complete corpus: 598411
+
+4. Unigram analysis after Stemming:
+(a) Mention the total unique unigrams present in the corpus.
+Answer: Number of unique unigrams (after stemming): 59982
+(b) Plot the distribution of the unigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) uni-grams are required to cover the 90% of the complete corpus.
+Answer: Uni-grams required to cover 90% of the complete corpus after stemming: 6860
+
+Bigram analysis after Stemming:
+(a) Mention the total unique bigrams present in the corpus. 
+Answer: Number of unique bigrams (after stemming): 508363
+(b) Plot the distribution of the bigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) bi-grams are required to cover the 80% of the complete corpus.
+Answer: Bi-grams required to cover 80% of the complete corpus after stemming: 257055
+
+Trigram analysis after Stemming:
+(a) Mention the total unique trigrams present in the corpus. 
+Answer: Number of unique trigrams (after stemming): 958164
+(b) Plot the distribution of the trigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) tri-grams are required to cover the 70% of the complete corpus.
+Answer: Tri-grams required to cover the 70% of the complete corpus after stemming: 581202
+
+5. Unigram analysis after Lemmatization:
+(a) Mention the total unique unigrams present in the corpus.
+Answer: Number of unique unigrams (after lemmatization): 65310
+(b) Plot the distribution of the unigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) uni-grams are required to cover the 90% of the complete corpus.
+Answer: Uni-grams required to cover the 90% of the complete corpus afer lemmatization: 8049
+
+Bigram analysis after Lemmatization:
+(a) Mention the total unique bigrams present in the corpus. 
+Answer: Number of unique bigrams (after lemmatization): 504571
+(b) Plot the distribution of the bigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) bi-grams are required to cover the 80% of the complete corpus.
+Answer: Bi-grams required to cover 80% of the complete corpus after lemmatization: 253263
+
+Trigram analysis after Lemmatization:
+(a) Mention the total unique trigrams present in the corpus. 
+Answer: Number of unique trigrams (after lemmatization): 948511
+(b) Plot the distribution of the trigram frequencies. 
+Answer: Saved in file
+(c) How many (most frequent) tri-grams are required to cover the 70% of the complete corpus.
+Answer: Tri-grams required to cover 70% of the complete corpus after lemmatization: 571549
+
+6. Brieﬂy summarize and discuss the frequency distributions obtained in (1) to (5). Do these distribution approximately follow the Zipf’s law?
+Answer: All the frequency vs rank graphs (log scale in both axes) obtained in questions 1-5 display a linear trend in certain range. 
+The graphs are decreasing in nature which implies that frequency of appearance of term decreases as the rank increases ie, they are inversely proportional. 
+This is what is stated in the Zipf's law. It states that if term1 is the most common term, term2 is the next most common, and so on, then the relation 
+between cfi(collection frequency of termi) and i(rank) is: cfi ∝ 1/i
+Hence, all graphs follow the Zipf's law.
+
+7. From the corpus, report three examples based on you observation where the tool used for tokenization did not tokenize the character sequence properly.
+Answer: 'emllcmll' was the tokenization for EMLL/CMLL. In reality, EMLL and CMLL are two separate abbreviations. These have been clubbed to form one 
+meaningless word 'emllcll'
+'banks' was the tokenization for bank's and similarly 'teams' was the tokenization for team's. This gives the impression that there are multiple banks 
+and teams whereas in reality only one bank and one team is being referred to.
+'obrien' was the tokenization for O'Brien hence totally changing the pronounciation of the name.
+'q0' was the tokenization for ("q"→0) and hence changing it's meaning from "q tending to zero" to q0.
+
+8. Which tool/library you used for tokenization, stemming and lemmatization? What are the underling algorithms this tool/library use for tokenization, 
+stemming and lemmatization?
+Amswer: For tokenization, I have used the word_tokenize() function which is available in the nltk (Natural Language Toolkit) library. The underlying principle 
+is that it breaks each word with punctuation which can be seen in the output. The output is a list of words.
+For stemming, I have used the stem() function from the SnowballStemmer class available in nltk. Stem is the root word to which prefixes or suffixes such as 
+(-ed,-ize,-s,-de,-ing etc.) are added to match the tense of the sentences, to describe plural and many other such purposes. Stemming is the process of 
+removing these suffixes in an attempt to find the root word without knowledge of context. When a form of a word is recognized it can make it possible to 
+return search results that otherwise might have been missed. It might happen that it changes the meaning or the result does not have any meaning 
+(hates --> hat //meaning changed). It uses rules:-'sses'-->'ss', 'ies'-->'i', 's'-->'' without taking care of whether the result gives meaningful 
+words or not.Example- swims --> swim, cooking --> cook 
+For lemmatizing, I have used the lemmatize() function from the WordNetLemmatizer class available in nltk. Lemmatization is the process of grouping together
+different forms of a word so that they can be analysed as a single meaningful base item. Lemmatization takes into account the context of the words. 
+For lemmatization to resolve a word to its lemma, it needs to know its part of speech and hence uses speech tagging. The principle used is 
+dictionary lookup and uses WordNet corpus to check for stop words and produce the lemma. It is done so that different forms of the same word point to 
+the root word and hence produce better results. Example- caring --> care, keys --> key
+
+9. From the corpus, analyse and brieﬂy summarize how the tool tokenizes dates and numeric values (especially related to currencies). (No need for an 
+exhaustive analyse, an analysis consisting of 5 diﬀerent examples would be suﬃcient.)
+Answer: 
+Dates---
+(1803–1815)-->'18031815' The context was "between year 1803 to year 1815" but after preprocessing the text has reduced to a meanningless number 18031815.
+15/16th April-->'1516th', 'april' The context was "15th April or 16th April" but after preprocessing it has reduced to 1516th which has a totally different meaning.
+August 12, 2012-->'august', '12', '2012' Here, a date is being referred to but since it has been separated, the 12 and 2012 may be interpreted differently. 
+Currencies---
+£618,040-->'618040' Here, the context that 618040 is a currency has been lost.
+$236 million-->'236', 'million' Here, the dollar sign is removed thus giving no context as to what the number refers to. Moreover, the number and "million" 
+have been separated. If we were to obtain all the currencies in the text corpus, the million would be missed out thus changing the value. 
+Other numeric values---
+03:30-->'0330' Here the 03:30 refers to time, but that context has been lost here.
+5–2 victory-->'52', 'victory' 5-2 refers to the scores of the winning and losing team, but afer preprocessing it is changed to 52, totally changing the meaning.
+2.7% increase-->'a', '27', 'increase' Here, 2.7% is reduced to 27 therefore completely changing the meaning. 
+a time of 1:58.62-->'a', 'time', 'of', '15862' The fact that it refers to time has been lost.
+0 to 3 °C-->'0', 'to', '3', 'c' The fact that 0 to 3 refers to temperature in degree celsius is lost.
+
+10. Find top 20 bi-gram collocations in the text corpus using Chi-square test. Do not use any libraries. 
+Answer: The top 20 bigram collocations and their chi-square values obtained after removing special cases are:
+	1.(('bandar', 'abbas'), 1169729.2017573758)------------------>city
+	2.(('puerto', 'rico'), 1031838.4878779763)------------------->island 
+	3.(('lucha', 'libre'), 1029475.6042602977)------------------->spanish word for wrestling
+	4.(('sierra', 'leone'), 981279.9416848982)------------------->country
+	5.(('hong', 'kong'), 938239.1102607358)---------------------->city
+	6.(('crockett', 'promotions'), 885745.0159592143)------------>professional wrestling promotion
+	7.(('costa', 'rica'), 877570.2217575387)--------------------->country
+	8.(('province', 'iran'), 862028.9782533272)------------------>country
+	9.(('los', 'angeles'), 851978.0998116685)-------------------->city
+	10.(('hormozgan', 'province'), 797018.7731572647)------------>one of the 31 provinces of Iran
+	11.(('te', 'ata'), 778915.9742546211)------------------------>actress
+	12.(('2006', 'census'), 699181.9442095096)------------------->census and its year
+	13.(('saudi', 'arabia'), 698919.566409524)------------------->country
+	14.(('battlefield', 'bravery'), 662829.5309206507)----------->phrase
+	15.(('las', 'vegas'), 656523.7485969468)--------------------->city
+	16.(('united', 'states'), 615031.0123650685)----------------->country
+	17.(('cmlls', 'equivalent'), 607386.6344707466)-------------->term in WWE
+	18.(('amman', 'jordan'), 595962.5500800456)------------------>city
+	19.(('sri', 'lanka'), 575745.4911652124)--------------------->country 
+	20.(('tamil', 'nadu'), 575012.135278548)--------------------->state
+	21.(('arena', 'méxico'), 571641.3570646511)------------------>indoor arena in Mexico City
+	22.(('teenage', 'mutant'), 560391.4103533601)---------------->refers to Teenage Mutant Ninja Turtles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
